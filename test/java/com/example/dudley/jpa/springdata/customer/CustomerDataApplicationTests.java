@@ -24,9 +24,8 @@ class CustomerDataApplicationTests {
 	void testCustomerCreate() {
 		
 		Customer customer = new Customer();
-		customer.setId(1);
-		customer.setEmail("ss@bu.com");
-		customer.setName("Zoy");
+		customer.setEmail("ff@bu.com");
+		customer.setName("SOy");
 		
 		customerRepository.save(customer);
 		
@@ -34,14 +33,14 @@ class CustomerDataApplicationTests {
 	
 	@Test
 	public void testRead() {
-		Customer customer = customerRepository.findById(1).get();
+		Customer customer = customerRepository.findById((long) 1).get();
 		assertNotNull(customer);
 		assertEquals("Zoy", customer.getName());
 	}
 	
 	@Test
 	void testUpdate() {
-		Customer customer = customerRepository.findById(1).get();
+		Customer customer = customerRepository.findById((long) 1).get();
 		customer.setEmail("zz@bu.com");
 		customerRepository.save(customer);		
 		
@@ -49,8 +48,8 @@ class CustomerDataApplicationTests {
 	
 	@Test
 	void testDelete() {
-		if(customerRepository.existsById(1)) {
-			customerRepository.deleteById(1);
+		if(customerRepository.existsById((long) 1)) {
+			customerRepository.deleteById((long) 1);
 		}
 			
 	}

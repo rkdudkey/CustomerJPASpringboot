@@ -2,25 +2,31 @@ package com.example.dudley.jpa.springdata.customer.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table
 public class Customer {
 	
+	@GeneratedValue(strategy = GenerationType.AUTO, generator="native")
+	@GenericGenerator(name = "native",strategy = "native")
 	@Id
-	private int id;
+	private long id;
 	
 	@Column
 	private String name;
 	private String email;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getName() {
